@@ -35,10 +35,7 @@
     <body>
     <!-- Navigation bar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">
-            <img src="{{ url_for('static', filename='images/UniRareAI.png') }}" class="logo" alt="UniRareAI Logo">
-            UniRareAI
-        </a>
+        <a class="navbar-brand" href="#">UniRareAI</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" 
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -46,17 +43,14 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Upload <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{{ url_for('upload_file') }}">Upload <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Records</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="about.html">About</a>
+                    <a class="nav-link" href="{{ url_for('about') }}">About</a>
                 </li>
             </ul>
         </div>
-    </nav>
+    </nav>    
     
     <!-- Main upload container -->
     <div class="container">
@@ -95,6 +89,21 @@
                     <li>{{ entity['word'] }} -> {{ entity['entity_group'] }} (Score: {{ entity['score'] }})</li>
                 {% endfor %}
             </ul>
+            <h2>Standards of Care Guidelines for [insert disease]:</h2>
+            <p>1: ...</p>
+            <p>2: ...</p>
+            <p>3: ...</p>
+
+            <h2>Health Care Specialists in [insert disease]:</h2>
+            <p>Name: </p>
+            <p>Email/Phone Number: </p>
+            <p>Organization/Hospital: </p>
+
+            <h2>Others with [insert disease]:</h2>
+            <p>Name: </p>
+            <p>Email/Phone Number: </p>
+            <button>Click to Chat</button>
+
         {% else %}
             <p>No entities extracted or there was an error processing the file.</p>
         {% endif %}
